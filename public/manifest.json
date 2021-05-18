@@ -1,0 +1,10 @@
+{
+  "short_name": "PWA Weather App",
+  "name": "Weather React Progressive Web Application",
+  "icons": [
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
