@@ -20,6 +20,7 @@
     }
   },
   "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
     "object-curly-spacing": [
       "warn",
       "always"
@@ -40,12 +41,6 @@
       {
         "vars": "all",
         "args": "none"
-      }
-    ],
-    "@typescript-eslint/no-explicit-any": [
-      "error",
-      {
-        "ignoreRestArgs": true
       }
     ],
     "max-len": [
