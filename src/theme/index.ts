@@ -5,7 +5,7 @@ export const theme = createMuiTheme({
     MuiGrid: {
       container: {
         height: '100%',
-      }
+      },
     },
     MuiBadge: {
       badge: {
@@ -19,7 +19,7 @@ export const theme = createMuiTheme({
       },
       colorError: {
         backgroundColor: '#ec6e4c',
-      }
+      },
     },
     MuiPaper: {
       root: {
