@@ -7,7 +7,7 @@ export const transformResponse = (res: GetWeatherResponse): WeatherData => {
     feelsLike: res.main.feels_like.toFixed(),
     humidity: res.main.humidity,
     pressure: res.main.pressure,
-    weatherDesc: res.weather[0].description,
+    weatherDesc: capitalizeFirstLetters(res.weather[0].description),
     icon: res.weather[0].icon,
     sunrise: res.sys.sunrise,
     sunset: res.sys.sunset,
@@ -20,4 +20,8 @@ export const transformResponse = (res: GetWeatherResponse): WeatherData => {
 
 export const getLocalTime = (time: number): string => {
   return new Date(time * 1000).toLocaleTimeString();
+}
+
+export const capitalizeFirstLetters = (str: string) => {
+  return str && str.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
 }

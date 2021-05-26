@@ -1,6 +1,5 @@
-import { createContext } from 'react';
 import { types } from 'store/types';
-import { Action, AppContextType, RootState } from 'store/typeDefs';
+import { Action, RootState } from 'store/typeDefs';
 import { getLocalTime } from 'utils/helpers';
 
 export const InitialState: RootState = {
@@ -23,8 +22,6 @@ export const InitialState: RootState = {
     set: '',
   },
 };
-
-export const AppContext = createContext<AppContextType | null>(null);
 
 export const reducer = (state: RootState, action: Action) => {
   switch (action.type) {

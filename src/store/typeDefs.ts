@@ -1,10 +1,4 @@
-import { Dispatch } from 'react';
 import { GetLocation } from 'api/typeDefs';
-
-export type AppContextType = {
-  state: RootState,
-  dispatch: Dispatch<Action>,
-}
 
 export type RootState = {
   location: GetLocation,

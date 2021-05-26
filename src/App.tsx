@@ -1,14 +1,15 @@
 import React, { Reducer, useEffect, useReducer } from 'react';
 import { theme } from 'theme';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { CircularProgress } from '@material-ui/core';
 
+import Loading from 'containers/Loading';
 import ForecastPage from 'containers/ForecastPage';
 import { fetchCurLocation } from 'api/fetchWeather';
 import { Action, RootState } from 'store/typeDefs';
-import { AppContext, InitialState, reducer } from 'store/reducer';
+import { InitialState, reducer } from 'store/reducer';
 import { actions } from 'store/actions';
 import { GetLocation } from 'api/typeDefs';
+import { AppContext } from 'context';
 
 const App: React.FC = () => {
   const [state, dispatch] = useReducer<Reducer<RootState, Action>>(reducer, InitialState);
@@ -19,7 +20,7 @@ const App: React.FC = () => {
   }, []);
 
   if (!state.location.city) {
-    return <CircularProgress />;
+    return <Loading />;
   }
 
   return (

@@ -1,19 +1,22 @@
 import React, { ChangeEvent, useContext, useState } from 'react';
 
-import { TextField } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { Box, TextField } from '@material-ui/core';
 import { fetchWeather } from 'api/fetchWeather';
-import { AppContextType } from 'store/typeDefs';
 import { BadResponse, GetWeatherResponse } from 'api/typeDefs';
-import { AppContext } from 'store/reducer';
+import { AppContext, AppContextType } from 'context';
 import { actions } from 'store/actions';
 import styled from 'styled-components';
-import { inputTheme } from 'theme';
 
 const SearchWrapper = styled.section`
   width: 400px;
-  min-height: 80px;
+  min-height: 105px;
   margin: 20px 0;
+`;
+
+const StyledBox = styled(Box)`
+  padding: 15px 10px 10px;
+  border-radius: 4px;
+  background: #f0f8ff;
 `;
 
 const SearchInput = () => {
@@ -41,7 +44,7 @@ const SearchInput = () => {
 
   return (
     <SearchWrapper>
-      <ThemeProvider theme={inputTheme}>
+      <StyledBox>
         <TextField
           fullWidth
           autoFocus
@@ -55,7 +58,7 @@ const SearchInput = () => {
           error={!!inputError}
           helperText={inputError}
         />
-      </ThemeProvider>
+      </StyledBox>
     </SearchWrapper>
   );
 };

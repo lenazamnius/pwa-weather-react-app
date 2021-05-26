@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 
-import { AppContext } from 'store/reducer';
+import { AppContext, AppContextType } from 'context';
 import { Badge, Typography } from '@material-ui/core';
 import styled from 'styled-components';
-import { AppContextType } from 'store/typeDefs';
 
 const LocationWrapper = styled.section`
   width: 400px;

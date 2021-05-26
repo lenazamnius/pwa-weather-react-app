@@ -17,24 +17,21 @@ export const theme = createMuiTheme({
       anchorOriginTopRightRectangle: {
         transform: 'scale(1) translate(85%, -50%)',
       },
+      colorError: {
+        backgroundColor: '#ec6e4c',
+      }
     },
     MuiPaper: {
       root: {
         minWidth: '400px',
-        padding: '40px 15px',
-        textAlign: 'center',
+        minHeight: '400px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '25px 45px',
+        backgroundColor: '#f0f8ff',
       },
-    },
-  },
-});
-
-export const inputTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#FFF',
-    },
-    secondary: {
-      main: '#11cb5f',
     },
   },
 });
