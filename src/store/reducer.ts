@@ -16,19 +16,21 @@ export const InitialState: RootState = {
     icon: '',
     windSpeed: 0,
   },
-  inputError: '',
   sun: {
     rise: '',
     set: '',
   },
+  fetching: false,
+  requestCity: '',
+  inputError: '',
 };
 
-export const reducer = (state: RootState, action: Action) => {
+export const reducer = (state: RootState = InitialState, action: Action) => {
   switch (action.type) {
     case types.SET_CURRENT_LOCATION:
       return {
         ...state,
-        location: action.payload,
+        requestCity: action.payload,
       };
     case types.SET_WEATHER: {
       const { sunset, sunrise, cityName, cityCountry, ...rest } = action.payload;
@@ -46,13 +48,10 @@ export const reducer = (state: RootState, action: Action) => {
         },
       };
     }
-    case types.SET_CITY:
+    case types.SET_REQUEST_CITY:
       return {
         ...state,
-        location: {
-          ...state.location,
-          city: action.payload,
-        },
+        requestCity: action.payload,
       };
     case types.SET_INPUT_ERROR:
       return {
@@ -63,6 +62,11 @@ export const reducer = (state: RootState, action: Action) => {
       return {
         ...state,
         inputError: '',
+      };
+    case types.IS_FETCHING:
+      return {
+        ...state,
+        fetching: action.payload,
       };
     default:
       throw new Error();

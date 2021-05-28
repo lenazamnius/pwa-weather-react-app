@@ -43,11 +43,11 @@ export interface GetWeatherResponse {
 export interface GetLocation {
   city: string,
   country: string,
-  hostname?: string,
-  ip?: string,
-  loc?: string,
-  org?: string,
-  postal?: string,
-  region?: string,
-  timezone?: string,
+  hostname: string,
+  ip: string,
+  loc: string,
+  org: string,
+  postal: string,
+  region: string,
+  timezone: string,
 }

@@ -1,11 +1,16 @@
-import { GetLocation } from 'api/typeDefs';
 import * as ITypes from 'store/typeDefs';
 import { types } from 'store/types';
 
 export const actions = {
-  setCity: (city: string): ITypes.setCityProps => {
+  isFetching: (status: boolean): ITypes.isFetchingProps =>{
     return {
-      type: types.SET_CITY,
+      type: types.IS_FETCHING,
+      payload: status,
+    }
+  },
+  setRequestCity: (city: string): ITypes.setRequestCityProps => {
+    return {
+      type: types.SET_REQUEST_CITY,
       payload: city,
     }
   },
@@ -15,7 +20,7 @@ export const actions = {
       payload,
     }
   },
-  setCurrentLocation: (payload: GetLocation): ITypes.setCurrentLocationProps => {
+  setCurrentLocation: (payload: string): ITypes.setCurrentLocationProps => {
     return {
       type: types.SET_CURRENT_LOCATION,
       payload,

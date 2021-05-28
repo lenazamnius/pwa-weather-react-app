@@ -2,34 +2,28 @@ import { createMuiTheme } from '@material-ui/core';
 
 export const theme = createMuiTheme({
   overrides: {
-    MuiGrid: {
-      container: {
-        height: '100%',
-      },
+    MuiContainer: {
+      root: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }
     },
-    MuiBadge: {
-      badge: {
-        height: '33px',
-        minWidth: '53px',
-        borderRadius: '15px',
-        fontSize: '1.3rem',
+    MuiTypography: {
+      h2: {
+        lineHeight: '1',
       },
-      anchorOriginTopRightRectangle: {
-        transform: 'scale(1) translate(85%, -50%)',
-      },
-      colorError: {
-        backgroundColor: '#ec6e4c',
-      },
+      h3: {
+        lineHeight: '1',
+        overflow: 'hidden',
+      }
     },
     MuiPaper: {
       root: {
-        minWidth: '400px',
-        minHeight: '400px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '25px 45px',
         backgroundColor: '#f0f8ff',
       },
     },

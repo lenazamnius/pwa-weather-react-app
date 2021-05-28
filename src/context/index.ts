@@ -6,4 +6,4 @@ export type AppContextType = {
   dispatch: Dispatch<Action>,
 }
 
-export const AppContext = createContext<AppContextType | null>(null);
+export const AppContext = createContext<AppContextType>({} as AppContextType);

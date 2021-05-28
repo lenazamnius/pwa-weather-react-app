@@ -2,7 +2,7 @@ import React, { Reducer, useEffect, useReducer } from 'react';
 import { theme } from 'theme';
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import Loading from 'containers/Loading';
+import Loading from 'components/Loading';
 import ForecastPage from 'containers/ForecastPage';
 import { fetchCurLocation } from 'api/fetchWeather';
 import { Action, RootState } from 'store/typeDefs';
@@ -16,10 +16,10 @@ const App: React.FC = () => {
 
   useEffect(() => {
     fetchCurLocation()
-      .then((location: GetLocation) => dispatch(actions.setCurrentLocation(location)));
+      .then((location: GetLocation) => dispatch(actions.setRequestCity(location.city)));
   }, []);
 
-  if (!state.location.city) {
+  if (!state.requestCity) {
     return <Loading />;
   }
 

@@ -1,11 +1,12 @@
-import { GetLocation } from 'api/typeDefs';
-
 export type RootState = {
-  location: GetLocation,
+  location: {
+    city: string,
+    country: string,
+  },
   sun: {
     rise: string,
     set: string,
-  }
+  },
   weather: {
     temp: number,
     feelsLike: number,
@@ -14,8 +15,10 @@ export type RootState = {
     weatherDesc: string,
     icon: string,
     windSpeed: number,
-  }
+  },
+  fetching: boolean,
   inputError: string,
+  requestCity: string,
 }
 
 export type Action = {
@@ -44,7 +47,7 @@ export interface setWeatherProps {
 
 export interface setCurrentLocationProps {
   type: string,
-  payload: GetLocation,
+  payload: string,
 }
 
 export interface setInputError {
@@ -52,7 +55,12 @@ export interface setInputError {
   payload: string,
 }
 
-export interface setCityProps {
+export interface setRequestCityProps {
   type: string,
   payload: string,
+}
+
+export interface isFetchingProps {
+  type: string,
+  payload: boolean,
 }

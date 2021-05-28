@@ -8,9 +8,14 @@ import { actions } from 'store/actions';
 import styled from 'styled-components';
 
 const SearchWrapper = styled.section`
-  width: 400px;
+  min-width: 400px;
   min-height: 105px;
   margin: 20px 0;
+
+  @media (max-width: 576px) {
+    min-width: max-content;
+    width: 100%;
+  }
 `;
 
 const StyledBox = styled(Box)`
@@ -35,9 +40,13 @@ const SearchInput = () => {
           if (res.cod !== 200) {
             dispatch(actions.setInputError(res.message));
           } else {
-            dispatch(actions.setCity(value));
+            dispatch(actions.setRequestCity(value));
+            dispatch(actions.isFetching(true));
             setValue('');
           }
+        })
+        .catch((er) => {
+          throw Error(er);
         });
     }
   };
